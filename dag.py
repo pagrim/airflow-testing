@@ -32,6 +32,7 @@ with DAG(
         data={"lat": 51.5072, "lng": 0.1276},
         endpoint="json",
         method="GET",
+        response_filter=lambda response: response.json()["results"]
     )
 
     bash_start >> api_call
